@@ -359,8 +359,8 @@ loop_end:
     }
 
     item->valuedouble = number;
-    item->valueint =  (fabs(item->valuedouble) < 1.0) ? 0 : (is_double_formatted ? ((int64_t)item->valuedouble) : _strtoi64((const char*)number_c_string, 0, 10));
-    item->valueuint = (fabs(item->valuedouble) < 1.0) ? 0 : (is_double_formatted ? ((uint64_t)item->valuedouble) : _strtoui64((const char*)number_c_string, 0, 10));
+    item->valueint =  (fabs(item->valuedouble) < 1.0) ? 0 : (is_double_formatted ? ((int64_t)item->valuedouble) : strtoll((const char*)number_c_string, 0, 10));
+    item->valueuint = (fabs(item->valuedouble) < 1.0) ? 0 : (is_double_formatted ? ((uint64_t)item->valuedouble) : strtoull((const char*)number_c_string, 0, 10));
 
     item->type = cJSON_Number;
 
